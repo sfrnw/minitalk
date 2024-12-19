@@ -6,7 +6,7 @@
 /*   By: asafrono <asafrono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:21:01 by asafrono          #+#    #+#             */
-/*   Updated: 2024/12/15 17:18:06 by asafrono         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:51:12 by asafrono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	ft_signal(int sigusr, void *handler, bool use_siginfo)
 		sa.sa_sigaction = handler;
 	}
 	else
-		
-	sa.sa_handler = handler;
+		sa.sa_handler = handler;
 	sigemptyset(&sa.sa_mask);
 	if (sigaction(sigusr, &sa, NULL) < 0)
 	{

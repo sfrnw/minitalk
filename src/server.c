@@ -6,7 +6,7 @@
 /*   By: asafrono <asafrono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:05:48 by asafrono          #+#    #+#             */
-/*   Updated: 2024/12/15 17:21:34 by asafrono         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:47:42 by asafrono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ void	handler(int sigusr, siginfo_t *info)
 			kill_with_checking(client, SIGUSR2);
 		}
 		else
-		{
 			write(1, &c, 1);
-		}
 		bit = 0;
 		c = 0;
 	}
