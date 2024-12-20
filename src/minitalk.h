@@ -6,7 +6,7 @@
 /*   By: asafrono <asafrono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:06:41 by asafrono          #+#    #+#             */
-/*   Updated: 2024/12/19 17:25:46 by asafrono         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:27:16 by asafrono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <string.h>
 # include <limits.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
-# include "../libft/ft_printf.h"
+# include "../libft/src/libft.h"
+# include "../libft/src/ft_printf/ft_printf.h"
 
 void	kill_with_checking(int pid, int signo);
 void	ft_signal(int sig, void *handler, bool use_siginfo);
