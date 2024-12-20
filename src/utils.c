@@ -6,7 +6,7 @@
 /*   By: asafrono <asafrono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:21:01 by asafrono          #+#    #+#             */
-/*   Updated: 2024/12/19 14:51:12 by asafrono         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:39:29 by asafrono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	kill_with_checking(int pid, int sigusr)
 {
 	if (kill(pid, sigusr) < 0)
 	{
-		ft_putstr_fd("Kill failed: ", 2);
+		ft_putstr_fd("Kill failed \n", 2);
 		exit(1);
 	}
 }
@@ -48,7 +48,9 @@ void	ft_signal(int sigusr, void *handler, bool use_siginfo)
 	sigemptyset(&sa.sa_mask);
 	if (sigaction(sigusr, &sa, NULL) < 0)
 	{
-		ft_putstr_fd("Sigaction failed: ", 2);
+		ft_putstr_fd("Sigaction failed \n", 2);
 		exit(1);
 	}
 }
+//	sigemptyset is a function used in signal handling that 
+//	initializes a signal set to be empty

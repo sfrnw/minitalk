@@ -6,7 +6,7 @@
 /*   By: asafrono <asafrono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:08:36 by asafrono          #+#    #+#             */
-/*   Updated: 2024/12/19 14:47:44 by asafrono         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:39:31 by asafrono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ack_handler(int sigusr)
 void	end_handler(int sigusr)
 {
 	(void)sigusr;
-	write(1, "Message received by server\n", 28);
+	ft_putstr_fd("Message received by server\n", 1);
 	exit(0);
 }
 

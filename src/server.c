@@ -6,7 +6,7 @@
 /*   By: asafrono <asafrono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:05:48 by asafrono          #+#    #+#             */
-/*   Updated: 2024/12/19 14:47:42 by asafrono         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:39:30 by asafrono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 // Handles incoming signals from clients.
 // Reconstructs characters bit by bit from received signals.
 // Prints characters and sends acknowledgments back to the client.
-void	handler(int sigusr, siginfo_t *info)
+void	handler(int sigusr, siginfo_t *info, void *unused)
 {
 	static unsigned char	c = 0;
 	static int				bit = 0;
 	static int				client;
 
+	(void)unused;
 	if (info->si_pid)
 		client = info->si_pid;
 	if (sigusr == SIGUSR1)
 		c |= (1 << (7 - bit));
+	else if (sigusr == SIGUSR2)
+		c &= ~(1 << (7 - bit));
 	bit++;
 	if (bit == 8)
 	{
@@ -45,6 +48,8 @@ void	handler(int sigusr, siginfo_t *info)
 // Prints its own PID.
 // Sets up signal handlers for SIGUSR1 and SIGUSR2.
 // Enters an infinite loop waiting for signals.
+// (the pause function causes the calling thread 
+// to pause until the signal recieved)
 int	main(void)
 {
 	int	pid;
